@@ -1,6 +1,23 @@
 # ZeroTrustX SOC Dashboard
 
-ZeroTrustX is a SOC analyst dashboard with a React/Vite frontend and FastAPI backend. It can run with Docker Compose or directly on the host machine.
+ZeroTrustX is a demonstration Security Operations Center (SOC) platform built around Zero Trust security principles. Developed as a cybersecurity showcase and learning project, it simulates key SOC workflows including threat detection, incident investigation, asset management, threat intelligence enrichment, and automated response actions.
+
+The platform combines a React/Vite frontend with a FastAPI backend to provide a centralized environment where security analysts can monitor alerts, investigate incidents, analyze threats, and visualize security operations through a modern dashboard experience.
+
+Key Features
+SOC Dashboard & Security Monitoring
+Incident Detection & Investigation Workflows
+MITRE ATT&CK Mapping & Analysis
+Asset Inventory Management
+Threat Intelligence & IP Reputation Analysis
+Firewall Response & Containment Actions
+Risk Assessment & Prioritization
+Role-Based Access Control (RBAC)
+Splunk SIEM Integration
+pfSense Firewall Integration
+Docker-Based Deployment
+
+Note: ZeroTrustX is a demonstration and educational project created to showcase SOC operations, cybersecurity workflows, and security platform development concepts. It is not intended for production deployment without additional security review, testing, and hardening.
 
 ## Docker Mode
 
