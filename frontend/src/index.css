@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════
+   ZEROTRUST-X — NEO-INDUSTRIAL DARK DESIGN SYSTEM
+   70% Neo-Industrial · 20% Tactical Cyber Ops · 10% Minimal SaaS
+═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Surfaces ─────────────────────────────────────────────────── */
+  --s0: #0F1117;
+  --s1: #13161F;
+  --s2: #171B26;
+  --s3: #1C2030;
+  --s4: #202435;
+  --s5: #252940;
+
+  /* ── Borders ──────────────────────────────────────────────────── */
+  --b0: rgba(255,255,255,0.04);
+  --b1: rgba(255,255,255,0.07);
+  --b2: rgba(255,255,255,0.11);
+  --b3: rgba(255,255,255,0.16);
+
+  /* ── Accent ───────────────────────────────────────────────────── */
+  --ac:   #3D7EF5;
+  --ac-h: #5591F7;
+  --ac-d: rgba(61,126,245,0.12);
+  --ac-r: rgba(61,126,245,0.28);
+  --ac-t: #6DA4FF;
+
+  /* ── Severity ─────────────────────────────────────────────────── */
+  --crit:  #CF4A4A;   --crit-d:  rgba(207,74,74,0.13);
+  --high:  #C07828;   --high-d:  rgba(192,120,40,0.13);
+  --med:   #A8881A;   --med-d:   rgba(168,136,26,0.13);
+  --low:   #2E8F4A;   --low-d:   rgba(46,143,74,0.13);
+  --info:  #3D7EF5;   --info-d:  rgba(61,126,245,0.13);
+
+  /* ── Status ───────────────────────────────────────────────────── */
+  --st-new:     #6B7A8F;
+  --st-triage:  #A8881A;
+  --st-invest:  #3D7EF5;
+  --st-contain: #2E8F4A;
+  --st-monitor: #7B62B8;
+  --st-closed:  #384050;
+  --st-fp:      #2A303E;
+
+  /* ── Text ─────────────────────────────────────────────────────── */
+  --t1: #DCE1EB;
+  --t2: #8D99AD;
+  --t3: #5F6B80;
+  --t4: #394153;
+  --t5: #252C3A;
+
+  /* ── Typography ───────────────────────────────────────────────── */
+  --font-sans: Inter, "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", Consolas, monospace;
+
+  /* ── Spacing — 4px grid ───────────────────────────────────────── */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px;
+
+  /* ── Radius — sharp industrial ────────────────────────────────── */
+  --r-xs: 2px; --r-sm: 4px; --r-md: 6px; --r-lg: 8px; --r-xl: 10px;
+
+  /* ── Elevation — flat shadows, no neumorphism ─────────────────── */
+  --el-1:     0 1px 3px rgba(0,0,0,0.28),  0 1px 2px rgba(0,0,0,0.22);
+  --el-2:     0 3px 8px rgba(0,0,0,0.32),  0 1px 3px rgba(0,0,0,0.24);
+  --el-3:     0 8px 24px rgba(0,0,0,0.40), 0 2px 8px rgba(0,0,0,0.28);
+  --el-modal: 0 20px 60px rgba(0,0,0,0.55),0 4px 16px rgba(0,0,0,0.32);
+
+  /* ── Motion ───────────────────────────────────────────────────── */
+  --ease:   cubic-bezier(0.20, 0, 0.20, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-micro: 60ms; --t-fast: 110ms; --t-base: 180ms; --t-slow: 280ms;
+
+  /* ── Z-index ──────────────────────────────────────────────────── */
+  --z-dropdown: 1000; --z-popover: 1100; --z-modal: 1200; --z-toast: 1300;
+
+  /* ════════════════════════════════════════════════════════════════
+     BACKWARD-COMPAT ALIASES
+     All existing components that use the old token names continue
+     to work without any JSX changes.
+  ════════════════════════════════════════════════════════════════ */
+
+  /* Surface aliases */
+  --base:          var(--s1);
+  --surface:       var(--s2);
+  --surface-alt:   var(--s3);
+  --well:          var(--s1);
+
+  /* Text aliases */
+  --tx-1:  var(--t1); --tx-2:  var(--t2); --tx-3: var(--t3); --tx-4: var(--t4);
+  --text-1: var(--t1); --text-2: var(--t2); --text-3: var(--t3); --text-4: var(--t4);
+
+  /* Accent aliases */
+  --accent:        var(--ac);
+  --accent-hover:  var(--ac-h);
+  --accent-dim:    var(--ac-d);
+  --accent-ring:   var(--ac-r);
+  --accent-bright: var(--ac-h);
+  --accent-glow:   rgba(61,126,245,0.08);
+  --border-focus:  var(--ac-r);
+
+  /* Border aliases */
+  --border:         var(--b1);
+  --border-muted:   var(--b0);
+  --border-strong:  var(--b2);
+  --border-dim:     var(--b0);
+  --border-default: var(--b1);
+  --border-bright:  var(--b2);
+  --border-glass:   var(--b1);
+
+  /* Severity with sev- prefix */
+  --sev-crit: var(--crit); --sev-crit-dim: var(--crit-d);
+  --sev-high: var(--high); --sev-high-dim: var(--high-d);
+  --sev-med:  var(--med);  --sev-med-dim:  var(--med-d);
+  --sev-low:  var(--low);  --sev-low-dim:  var(--low-d);
+  --sev-info: var(--info); --sev-info-dim: var(--info-d);
+  --ok: var(--low); --warn: var(--med);
+  --crit-bg: var(--crit-d); --high-bg: var(--high-d);
+  --med-bg:  var(--med-d);  --low-bg:  var(--low-d);
+  --info-bg: var(--info-d);
+
+  /* Neumorphic aliases → flat elevation (so code using --neu-* doesn't break) */
+  --neu-flat:       var(--el-1);
+  --neu-flat-hover: var(--el-2);
+  --neu-pressed:    inset 0 1px 3px rgba(0,0,0,0.30);
+  --neu-concave:    inset 0 1px 2px rgba(0,0,0,0.20);
+  --neu-input:      inset 0 1px 3px rgba(0,0,0,0.25);
+  --neu-card:       var(--el-1);
+  --neu-sidebar:    none;
+
+  /* Legacy surface tokens */
+  --bg-base:        var(--s0); --bg-surface:    var(--s2);
+  --bg-elevated:    var(--s3); --bg-hover:      var(--s3);
+  --bg-active:      var(--s1); --bg-glass:      var(--s2);
+  --bg-glass-heavy: var(--s2); --bg-glass-input: var(--s1);
+  --bg-selected:    var(--ac-d);
+  --layer-1-bg: var(--s2); --layer-2-bg: var(--s3); --layer-3-bg: var(--s2);
+  --layer-1-border: var(--b1); --layer-2-border: var(--b0); --layer-3-border: var(--b2);
+  --layer-1-shine: transparent; --layer-2-shine: transparent; --layer-3-shine: transparent;
+  --layer-1-blur: none; --layer-2-blur: none; --layer-3-blur: none;
+
+  /* Blur tokens — always none (glassmorphism removed) */
+  --blur-xs: none; --blur-sm: none; --blur-md: none;
+  --blur-lg: none; --blur-xl: none; --blur-1: none; --blur-2: none; --blur-3: none;
+
+  /* Font aliases */
+  --font: var(--font-sans); --mono: var(--font-mono); --sans: var(--font-sans);
+
+  /* Radius aliases */
+  --r-2xl: var(--r-xl);
+
+  /* Motion aliases */
+  --ease-out: var(--ease); --ease-in-out: cubic-bezier(0.4,0,0.2,1);
+  --ease-spring: var(--spring);
+  --dur-instant: var(--t-micro); --dur-fast: var(--t-fast);
+  --dur-normal: var(--t-base); --dur-slow: var(--t-slow); --dur-crawl: 600ms;
+
+  /* Status aliases */
+  --status-new: var(--st-new); --status-triage: var(--st-triage);
+  --status-invest: var(--st-invest); --status-contain: var(--st-contain);
+  --status-monitor: var(--st-monitor); --status-closed: var(--st-closed);
+  --status-fp: var(--st-fp);
+}
+
+/* ── Reset ────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 13px; -webkit-text-size-adjust: 100%; }
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--s0);
+  color: var(--t1);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+button { font-family: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font-family: var(--font-sans); }
+
+.mono { font-family: var(--font-mono); }
+
+/* ── Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 4px; height: 4px; }
+::-webkit-scrollbar-track        { background: var(--s1); }
+::-webkit-scrollbar-thumb        { background: var(--s4); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--s5); }
+
+.scrollbar-thin::-webkit-scrollbar             { width: 4px; height: 4px; }
+.scrollbar-thin::-webkit-scrollbar-track       { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb       { background: var(--s4); border-radius: 999px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: var(--s5); }
+
+.mitre-matrix-scroll::-webkit-scrollbar { width: 8px; height: 10px; }
+.mitre-matrix-scroll::-webkit-scrollbar-track { background: var(--s1); border-radius: 999px; }
+.mitre-matrix-scroll::-webkit-scrollbar-thumb {
+  background: var(--s4); border-radius: 999px;
+  border: 2px solid transparent; background-clip: padding-box;
+}
+.mitre-matrix-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--s5); background-clip: padding-box;
+}
+
+/* ── Focus ring ───────────────────────────────────────────────────── */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--s0), 0 0 0 4px var(--ac-r);
+  border-radius: var(--r-sm);
+}
+
+/* ── Surface utilities (replaces glass-* and lq-* classes) ───────── */
+.glass-1, .glass, .lq-card, .neu-card {
+  background: var(--s2);
+  border: 1px solid var(--b1);
+  box-shadow: var(--el-1);
+  border-radius: var(--r-lg);
+}
+.glass-2, .lq-elevated {
+  background: var(--s3);
+  border: 1px solid var(--b0);
+  box-shadow: var(--el-1);
+  border-radius: var(--r-lg);
+}
+.glass-3, .glass-heavy, .lq-modal {
+  background: var(--s2);
+  border: 1px solid var(--b2);
+  box-shadow: var(--el-3);
+  border-radius: var(--r-lg);
+}
+.glass-subtle, .neu-well {
+  background: var(--s1);
+  border: 1px solid var(--b0);
+  border-radius: var(--r-md);
+}
+.neu-pressed {
+  background: var(--s1);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.30);
+}
+
+/* ── Layout utilities ─────────────────────────────────────────────── */
+.main-scroll { overflow-x: hidden; }
+.scroll-area { overflow-y: auto; }
+
+/* ── Sidebar GPU layer ────────────────────────────────────────────── */
+.sidebar {
+  transform: translateZ(0);
+  will-change: transform;
+  contain: layout style;
+}
+
+/* ── Page entry animation ─────────────────────────────────────────── */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-in    { animation: pageIn var(--t-slow) var(--ease) both; }
+.page-enter { animation: pageEnter var(--t-slow) var(--ease) both; }
+
+/* ── Modal entry ──────────────────────────────────────────────────── */
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.97) translateY(6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-enter { animation: modalEnter var(--t-base) var(--ease) both; }
+
+/* ── Skeleton ─────────────────────────────────────────────────────── */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.40; }
+  50%       { opacity: 0.70; }
+}
+.skeleton {
+  background: var(--s3);
+  border-radius: var(--r-sm);
+  animation: skeletonPulse 1.8s ease-in-out infinite;
+}
+
+/* ── Spinner ──────────────────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Tactical pulse (live indicators only) ────────────────────────── */
+@keyframes tacPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.tac-pulse { animation: tacPulse 2.8s ease-in-out infinite; }
+
+/* ── Connected pulse (integration dots) ──────────────────────────── */
+@keyframes connectedPulse {
+  0%, 100% { opacity: 1;    transform: scale(1);    }
+  50%       { opacity: 0.55; transform: scale(0.80); }
+}
+.connected-pulse { animation: connectedPulse 2.4s ease-in-out infinite; }
+
+/* ── Pending blink ────────────────────────────────────────────────── */
+@keyframes pendingBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.pulse-pending { animation: pendingBlink 1.5s ease-in-out infinite; }
+.pending-dot   { animation: pendingBlink 1.2s ease-in-out infinite; }
+.pulse-dot     { animation: pendingBlink 1s ease-in-out infinite; }
+
+/* ── Status ring pulse ────────────────────────────────────────────── */
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(46,143,74,0.40); }
+  50%       { box-shadow: 0 0 0 5px rgba(46,143,74,0.00); }
+}
+.pulse-connected { animation: statusPulse 2.8s ease-in-out infinite; }
+
+/* ── Number update ────────────────────────────────────────────────── */
+@keyframes numberUpdate {
+  0%   { transform: translateY(4px); opacity: 0.3; }
+  60%  { transform: translateY(-1px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.number-update { animation: numberUpdate var(--t-fast) var(--ease) both; }
+
+/* ── Badge pulse ──────────────────────────────────────────────────── */
+@keyframes badgePulse {
+  0%   { transform: scale(1.12); opacity: 0.7; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+.badge-updated { animation: badgePulse var(--t-base) var(--ease) both; }
+
+/* ── KPI flash ────────────────────────────────────────────────────── */
+@keyframes kpi-flash {
+  0%   { background: rgba(168,136,26,0.16); }
+  100% { background: transparent; }
+}
+.kpi-flash { animation: kpi-flash 200ms ease-out forwards; }
+
+/* ── Ripple ───────────────────────────────────────────────────────── */
+@keyframes ripple {
+  from { transform: scale(0); opacity: 0.25; }
+  to   { transform: scale(3); opacity: 0; }
+}
+.ripple-effect {
+  position: absolute; border-radius: 50%;
+  width: 60px; height: 60px;
+  background: rgba(255,255,255,0.10);
+  pointer-events: none;
+  animation: ripple var(--t-slow) var(--ease) forwards;
+  transform-origin: center;
+}
+
+/* ── Row arrive ───────────────────────────────────────────────────── */
+@keyframes rowArrive {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.row-arrive { animation: rowArrive var(--t-base) var(--ease) both; }
+
+/* ── Chevron toggle ───────────────────────────────────────────────── */
+.chevron-toggle { transition: transform var(--t-fast) var(--ease); }
+.chevron-toggle.open { transform: rotate(90deg); }
+
+/* ── Timeline ─────────────────────────────────────────────────────── */
+.timeline-container { position: relative; }
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 39px; top: 0; bottom: 0;
+  width: 0;
+  border-left: 1px dashed rgba(61,126,245,0.18);
+  pointer-events: none;
+  z-index: 0;
+}
+.timeline-body {
+  overflow: hidden; max-height: 0; opacity: 0;
+  transition: max-height var(--t-slow) var(--ease), opacity var(--t-base) var(--ease);
+}
+.timeline-body.open { max-height: 600px; opacity: 1; }
+
+/* ── Investigation saved grid ─────────────────────────────────────── */
+.investigation-saved-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 16px; align-items: stretch;
+}
+.investigation-saved-column {
+  min-width: 0; max-width: 100%; overflow: hidden;
+  display: flex; flex-direction: column; height: 100%;
+}
+.investigation-saved-list {
+  flex: 1 1 auto; min-height: 0;
+  max-height: 320px; overflow-y: auto; overflow-x: hidden;
+}
+.saved-search-preview {
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; word-break: break-word;
+}
+@media (max-width: 900px) {
+  .investigation-saved-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
