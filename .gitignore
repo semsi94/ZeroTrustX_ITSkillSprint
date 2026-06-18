@@ -15,3 +15,7 @@ venv/
 coverage/
 
 *.log
+
+.env
+backend/.env
+frontend/.env
